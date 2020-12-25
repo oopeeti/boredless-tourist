@@ -8,21 +8,15 @@ def get_destination_index(destination):
     destination_index = destinations.index(destination)
     return destination_index
 
-# print("Destination index is: " + str(get_destination_index("Hyderabad, India"))) ## GIVES AN ValueError
-
 def get_traveler_location(traveler):
     traveler_destination = traveler[1]
     traveler_destination_index = get_destination_index(traveler_destination)
     return traveler_destination_index
     
-# print("Travelers destination index: " + str(get_traveler_location(test_traveler))) ## Prints dindex
-
 test_destination_index = get_traveler_location(test_traveler)
-# print(test_destination_index)
 
 ### LOGIC of list of attractions
 attractions = [[] for attraction in destinations]
-# print(attractions)
 
 def add_attraction(destination, attraction):
     try:
@@ -46,8 +40,6 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
-# print(attractions)
-
 ### LOGIC to find the most interesting places in a new city for a traveler
 def find_attractions(destination, interests):
     destination_index = get_destination_index(destination)
@@ -60,7 +52,6 @@ def find_attractions(destination, interests):
         for interest in interests:
             if interest == attraction_tags[1]:
                 attractions_with_interest.append(possible_attractions[0])
-                print("Interest added")
     return attractions_with_interest
 
 ### LOGIC to connect people with attractions that they are interested in
@@ -68,8 +59,7 @@ def get_attractions_for_traveler(traveler):
     traveler_destination = traveler[1]
     traveler_interests = traveler[2]
     traveler_attractions = find_attractions(traveler_destination, traveler_interests)
-    print(traveler_attractions)
-
+    
     interests_string = "Hi " + str(traveler[0]) + ", we think you'll like these places around " + str(traveler[1]) + ": " + str(traveler_attractions[0])
 
     return interests_string
