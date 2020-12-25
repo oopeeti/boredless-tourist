@@ -1,8 +1,5 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 
-# Traveller Erin Wilkes
-test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
-
 ### BOREDLESS TOURIST'S FUNCTIONALITY
 def get_destination_index(destination):
     destination_index = destinations.index(destination)
@@ -13,8 +10,6 @@ def get_traveler_location(traveler):
     traveler_destination_index = get_destination_index(traveler_destination)
     return traveler_destination_index
     
-test_destination_index = get_traveler_location(test_traveler)
-
 ### LOGIC of list of attractions
 attractions = [[] for attraction in destinations]
 
@@ -24,7 +19,7 @@ def add_attraction(destination, attraction):
         attractions_for_destination = attractions[destination_index]
         attractions_for_destination.append(attraction)
         return
-    except ValueError:
+    except ValueError: ## Gives error message if destination is not found
         print("Destination doesn't exist")
         return
 
@@ -64,7 +59,7 @@ def get_attractions_for_traveler(traveler):
 
     return interests_string
 
+## Traverel Dereck
 dereck = 'Dereck Smill', 'Paris, France', ['monument']
 smills_france = get_attractions_for_traveler(dereck)
-
 print(smills_france)
