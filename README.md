@@ -1,1 +1,1 @@
-# boredless-tourist
+# Boredless Tourist App
