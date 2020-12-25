@@ -48,6 +48,25 @@ add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 print(attractions)
 
+### Most interesting places in a new city for a traveler
+def find_attractions(destination, interests):
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index]
+    attractions_with_interest = []
+
+    for possible_attractions in attractions_in_city:
+        attraction_tags = possible_attractions[1]
+        
+        for interest in interests:
+            if interest == attraction_tags[0]:
+                attractions_with_interest.append(possible_attractions[0])
+                print("Interest added")
+    return attractions_with_interest
+
+la_arts = find_attractions("Los Angeles, USA", ["art"])
+print(la_arts)
+
+
 
 
 
