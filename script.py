@@ -18,11 +18,11 @@ def get_traveler_location(traveler):
 # print("Travelers destination index: " + str(get_traveler_location(test_traveler))) ## Prints dindex
 
 test_destination_index = get_traveler_location(test_traveler)
-print(test_destination_index)
+# print(test_destination_index)
 
-### List of attractions
+### LOGIC of list of attractions
 attractions = [[] for attraction in destinations]
-print(attractions)
+# print(attractions)
 
 def add_attraction(destination, attraction):
     try:
@@ -37,7 +37,7 @@ def add_attraction(destination, attraction):
 add_attraction("Los Angeles, USA", ["Venice Beach", ["beach"]])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
-add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
 add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
 add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
 add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
@@ -46,9 +46,9 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
-print(attractions)
+# print(attractions)
 
-### Most interesting places in a new city for a traveler
+### LOGIC to find the most interesting places in a new city for a traveler
 def find_attractions(destination, interests):
     destination_index = get_destination_index(destination)
     attractions_in_city = attractions[destination_index]
@@ -58,16 +58,23 @@ def find_attractions(destination, interests):
         attraction_tags = possible_attractions[1]
         
         for interest in interests:
-            if interest == attraction_tags[0]:
+            if interest == attraction_tags[1]:
                 attractions_with_interest.append(possible_attractions[0])
                 print("Interest added")
     return attractions_with_interest
 
-la_arts = find_attractions("Los Angeles, USA", ["art"])
-print(la_arts)
+### LOGIC to connect people with attractions that they are interested in
+def get_attractions_for_traveler(traveler):
+    traveler_destination = traveler[1]
+    traveler_interests = traveler[2]
+    traveler_attractions = find_attractions(traveler_destination, traveler_interests)
+    print(traveler_attractions)
 
+    interests_string = "Hi " + str(traveler[0]) + ", we think you'll like these places around " + str(traveler[1]) + ": " + str(traveler_attractions[0])
 
+    return interests_string
 
+dereck = 'Dereck Smill', 'Paris, France', ['monument']
+smills_france = get_attractions_for_traveler(dereck)
 
-
-
+print(smills_france)
