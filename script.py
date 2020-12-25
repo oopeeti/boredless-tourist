@@ -59,7 +59,7 @@ def get_attractions_for_traveler(traveler):
 
     return interests_string
 
-## Traverel Dereck
+## Traveler Dereck
 dereck = 'Dereck Smill', 'Paris, France', ['monument']
 smills_france = get_attractions_for_traveler(dereck)
 print(smills_france)
